@@ -3,13 +3,21 @@ import java.util.ArrayList;
 public class Admin extends User {
     private ArrayList<Supplier> suppliers;
 
+    public Admin(String username, String password) {
+        super(username, password);
+        StaticClass.admins.add(this);
+    }
 
-    public ArrayList<Merchandise> getAllMerchandises() {
-        ArrayList<Merchandise> allMerchandises = new ArrayList<>();
+    public static void dashboardUI(User loggedInUser) {
+    }
+
+
+    public ArrayList<Product> getAllProducts() {
+        ArrayList<Product> allProducts = new ArrayList<>();
         for (Supplier s :
                 suppliers)
-            allMerchandises.addAll(s.getMerchandises());
-        return allMerchandises;
+            allProducts.addAll(s.getProducts());
+        return allProducts;
     }
 
 }

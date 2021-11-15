@@ -1,13 +1,14 @@
-public class Merchandise {
+public class Product {
     private long price;
     private int size;
     private int power;
     private int volume;
+    private String companyName;
     private Type type;
     private int inStock;
 
 
-    public Merchandise(Type type) {
+    public Product(Type type) {
         this.type = type;
     }
 
@@ -19,4 +20,7 @@ public class Merchandise {
         return inStock > 0;
     }
 
+    public long getPrice(){
+        return price;
+    }
 }
