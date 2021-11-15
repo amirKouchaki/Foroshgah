@@ -104,5 +104,16 @@ public class Supplier extends User {
 
     public void setName(String name) {
         this.name = name;
+        for (Product product:
+             products) {
+            product.setCompanyName(name);
+        }
+    }
+
+    public static void printSuppliers(Admin loggedInUser){
+        for (int i = 0; i < loggedInUser.getSuppliers().size(); i++) {
+            System.out.println((i+1) + '.' + loggedInUser.getSuppliers().get(i).getName());
+        }
     }
 }
+//TODO: username should be unique

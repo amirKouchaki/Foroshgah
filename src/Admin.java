@@ -6,7 +6,7 @@ public class Admin extends User {
 
     public Admin(String username, String password) {
         super(username, password);
-        StaticClass.admins.add(this);
+        StaticClass.admin = this;
         suppliers = new ArrayList<>();
     }
 
@@ -29,22 +29,32 @@ public class Admin extends User {
                 case 1 :
                     for (int i = 0; i < loggedInUser.getSuppliers().size(); i++) {
                         Supplier supplier = loggedInUser.getSuppliers().get(i);
-                        System.out.println((i+1) + '.' + supplier.getName());
+                        System.out.println(String.valueOf(i+1) + '.' + supplier.getName());
                         Product.printProducts(supplier,true,true);
                     }
                     break;
                 case 2 :
                     System.out.println("choose the company that you want to change the name of");
-                    for (int i = 0; i < loggedInUser.getSuppliers().size(); i++) {
-                        System.out.println((i+1) + '.' + loggedInUser.getSuppliers().get(i).getName());
-                    }
+                    Supplier.printSuppliers(loggedInUser);
                     int selectedCompany = scanner.nextInt() - 1;
 
                     System.out.println("enter a new name for the company");
                     String newName = scanner.nextLine();
 
                     loggedInUser.getSuppliers().get(selectedCompany).setName(newName);
+                    break;
+                case 3:
+                    System.out.println("choose the product you want to offer a discount on");
+                    for (int i = 0; i < loggedInUser.getAllProducts().size(); i++) {
+                        Product product = loggedInUser.getAllProducts().get(i);
+                        System.out.println(String.valueOf(i+1) + '.' + product.getType() + " " + product.getPriceAfterDiscount(product) + '$');
+                    }
+                    int selectedProduct = scanner.nextInt() - 1;
 
+                    System.out.println("enter the discount(in percentage)");
+                    int discount = scanner.nextInt();
+                    loggedInUser.getAllProducts().get(selectedProduct).setDiscount(discount);
+                    break;
             }
 
             System.out.println("enter any key to go back");
@@ -52,7 +62,7 @@ public class Admin extends User {
         }
     }
 
-    private ArrayList<Supplier> getSuppliers() {
+    ArrayList<Supplier> getSuppliers() {
         return suppliers;
     }
 

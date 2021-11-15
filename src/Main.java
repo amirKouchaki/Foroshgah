@@ -27,7 +27,7 @@ public class Main {
 
 
         Supplier supplier = new Supplier("sadra","ali", "tarash");
-        supplier.addProduct(2000,2,20,400,Type.AIR_CONDITIONER,200);
+        supplier.addProduct(2000,2,20,400,Type.AIR_CONDITIONER,1);
         supplier.addProduct(195,10,300,42,Type.REFRIGERATOR,1500);
         supplier.addProduct(4153,52,98,71,Type.TV,100);
         supplier.addProduct(2,200,41,90,Type.REFRIGERATOR,555);
