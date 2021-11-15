@@ -22,8 +22,31 @@ public class Main {
     private static void init() {
         new Customer("amir", "1234");
         new Customer("nima", "Nama");
-        new Supplier("sadra","ali", "tarash");
-        new Admin("mehran", "mahi");
+
+
+
+
+        Supplier supplier = new Supplier("sadra","ali", "tarash");
+        supplier.addProduct(2000,2,20,400,Type.AIR_CONDITIONER,200);
+        supplier.addProduct(195,10,300,42,Type.REFRIGERATOR,1500);
+        supplier.addProduct(4153,52,98,71,Type.TV,100);
+        supplier.addProduct(2,200,41,90,Type.REFRIGERATOR,555);
+        supplier.addProduct(5102351,6,205,500000,Type.AIR_CONDITIONER,321);
+
+        Supplier secondSupplier = new Supplier("ahmad","mohammad", "123");
+        secondSupplier.addProduct(2514,2,20,400,Type.AIR_CONDITIONER,200);
+        secondSupplier.addProduct(12,10,300,42,Type.REFRIGERATOR,1500);
+        secondSupplier.addProduct(514,52,98,71,Type.TV,100);
+        secondSupplier.addProduct(6141516,200,41,90,Type.REFRIGERATOR,555);
+        secondSupplier.addProduct(342,6,205,500000,Type.AIR_CONDITIONER,321);
+
+
+
+
+        Admin admin = new Admin("mehran", "mahi");
+        admin.addSupplier(supplier);
+        admin.addSupplier(secondSupplier);
+
     }
 
     private static void signInUI() {
